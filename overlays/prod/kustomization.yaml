@@ -1,6 +1,6 @@
-namePrefix: production-
+namePrefix: prod-
 commonLabels:
-  variant: production-
+  variant: prod
   org: acmeCorporation
 commonAnnotations:
   note: Hello, I am production!

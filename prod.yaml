@@ -9,8 +9,8 @@ metadata:
   labels:
     app: lianyz-app
     org: acmeCorporation
-    variant: production-
-  name: production-the-map
+    variant: prod
+  name: prod-the-map
 ---
 apiVersion: v1
 kind: Service
@@ -20,8 +20,8 @@ metadata:
   labels:
     app: lianyz-app
     org: acmeCorporation
-    variant: production-
-  name: production-the-service
+    variant: prod
+  name: prod-the-service
 spec:
   ports:
   - port: 8666
@@ -31,7 +31,7 @@ spec:
     app: lianyz-app
     deployment: hello
     org: acmeCorporation
-    variant: production-
+    variant: prod
   type: LoadBalancer
 ---
 apiVersion: apps/v1
@@ -42,8 +42,8 @@ metadata:
   labels:
     app: lianyz-app
     org: acmeCorporation
-    variant: production-
-  name: production-the-deployment
+    variant: prod
+  name: prod-the-deployment
 spec:
   replicas: 10
   selector:
@@ -51,7 +51,7 @@ spec:
       app: lianyz-app
       deployment: hello
       org: acmeCorporation
-      variant: production-
+      variant: prod
   template:
     metadata:
       annotations:
@@ -60,7 +60,7 @@ spec:
         app: lianyz-app
         deployment: hello
         org: acmeCorporation
-        variant: production-
+        variant: prod
     spec:
       containers:
       - command:
@@ -72,12 +72,12 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: altGreeting
-              name: production-the-map
+              name: prod-the-map
         - name: ENABLE_RISKY
           valueFrom:
             configMapKeyRef:
               key: enableRisky
-              name: production-the-map
+              name: prod-the-map
         image: monopole/hello:1
         name: the-container
         ports:
