@@ -1,5 +1,5 @@
+.PHONY: build-base
+build-base:
+	kustomize build base
 
 
-
-[customize](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/helloWorld/README.md)
-[customize](https://github.com/kubernetes-sigs/kustomize)
