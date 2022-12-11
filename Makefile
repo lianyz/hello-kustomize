@@ -14,4 +14,6 @@ deploy-prod:
 
 .PHONY: undeploy
 undeploy:
+	kustomize build ./base | kubectl delete --ignore-not-found=true -f -
 	kustomize build ./overlays/staging | kubectl delete --ignore-not-found=true -f -
+	kustomize build ./overlays/prod | kubectl delete --ignore-not-found=true -f -
