@@ -17,3 +17,7 @@ undeploy:
 	kustomize build ./base | kubectl delete --ignore-not-found=true -f -
 	kustomize build ./overlays/staging | kubectl delete --ignore-not-found=true -f -
 	kustomize build ./overlays/prod | kubectl delete --ignore-not-found=true -f -
+
+.PHONY: deploy-demo
+deploy-demo:
+	cd manager && kustomize edit set image controller=lianyz/controller:v1.0 
